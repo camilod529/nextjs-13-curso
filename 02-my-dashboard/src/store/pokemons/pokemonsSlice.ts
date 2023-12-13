@@ -13,9 +13,9 @@ interface FavoritePokemonsState {
 }
 
 const initialState: FavoritePokemonsState = {
-    "1": { id: "1", name: "bulbasaur" },
-    "2": { id: "2", name: "ivysaur" },
-    "6": { id: "6", name: "charizard" },
+    // "1": { id: "1", name: "bulbasaur" },
+    // "2": { id: "2", name: "ivysaur" },
+    // "6": { id: "6", name: "charizard" },
 };
 
 const pokemonsSlice = createSlice({
