@@ -12,10 +12,13 @@ interface FavoritePokemonsState {
     [key: string]: SimplePokemon;
 }
 
+const getInitialState = (): FavoritePokemonsState => {
+    const favorites = JSON.parse(localStorage.getItem("favoritePokemons") ?? "{}");
+    return favorites;
+};
+
 const initialState: FavoritePokemonsState = {
-    // "1": { id: "1", name: "bulbasaur" },
-    // "2": { id: "2", name: "ivysaur" },
-    // "6": { id: "6", name: "charizard" },
+    ...getInitialState(),
 };
 
 const pokemonsSlice = createSlice({
@@ -26,9 +29,10 @@ const pokemonsSlice = createSlice({
             const pokemon = action.payload;
             if (!!state[pokemon.id]) {
                 delete state[pokemon.id];
-                return;
+            } else {
+                state[pokemon.id] = pokemon;
             }
-            state[pokemon.id] = pokemon;
+            localStorage.setItem("favoritePokemons", JSON.stringify(state));
         },
     },
 });
