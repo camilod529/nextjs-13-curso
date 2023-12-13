@@ -31,7 +31,6 @@ const getPokemon = async (id: string): Promise<Pokemon> => {
             //     revalidate: 60 * 60 * 30 * 6,
             // }
         }).then((res) => res.json());
-        console.log(`se cargo ${pokemon.name}`);
         return pokemon;
     } catch (error) {
         notFound();
